@@ -16,9 +16,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(): View
     {
-        // If already authenticated, redirect to Filament admin area
+        // If already authenticated, redirect to public dashboard
         if (Auth::check()) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/minha-conta');
         }
 
         return view('auth.register');
@@ -48,6 +48,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->to('/admin');
+        return redirect()->intended('/minha-conta');
     }
 }

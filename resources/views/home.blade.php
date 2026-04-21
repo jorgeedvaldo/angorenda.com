@@ -144,16 +144,24 @@
             <span class="block text-brand-200">Anuncie gratuitamente no Angorenda.</span>
         </h2>
         <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-            <div class="inline-flex rounded-xl shadow">
-                <a href="/signup" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-xl text-brand-900 bg-white hover:bg-brand-50 transition-colors">
-                    Criar conta grátis
-                </a>
-            </div>
-            <div class="ml-3 inline-flex rounded-xl shadow">
-                <a href="/admin/login" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-brand-800 hover:bg-brand-700 transition-colors">
-                    Entrar
-                </a>
-            </div>
+            @auth
+                <div class="inline-flex rounded-xl shadow">
+                    <a href="{{ route('owner.dashboard') }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-xl text-brand-900 bg-white hover:bg-brand-50 transition-colors">
+                        Ir para Minha Conta
+                    </a>
+                </div>
+            @else
+                <div class="inline-flex rounded-xl shadow">
+                    <a href="/signup" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-xl text-brand-900 bg-white hover:bg-brand-50 transition-colors">
+                        Criar conta grátis
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-xl shadow">
+                    <a href="/login" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-brand-800 hover:bg-brand-700 transition-colors">
+                        Entrar
+                    </a>
+                </div>
+            @endauth
         </div>
     </div>
 </div>
