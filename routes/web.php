@@ -17,6 +17,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OwnerPropertyController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\PropertyController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+    return redirect()->back();
+})->name('linkstorage');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
