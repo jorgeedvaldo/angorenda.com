@@ -14,11 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // 1. Create a Primary Admin for management
+        \App\Models\User::factory()->create([
+            'name' => 'Admin Angorenda',
+            'email' => 'admin@angorenda.com',
+            'role' => 'admin',
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // 2. Create 10 Owners and 100 Properties
+        // Each owner will have roughly 10 properties
+        \App\Models\User::factory(10)
+            ->has(\App\Models\Property::factory()->count(10), 'properties')
+            ->create();
     }
 }
