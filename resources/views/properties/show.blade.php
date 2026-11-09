@@ -167,7 +167,7 @@
             <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Descrição do Imóvel</h3>
                 <div class="prose prose-gray max-w-none text-gray-600 space-y-4">
-                    {!! nl2br(e($property->description)) !!}
+                    {!! $property->description !!}
                 </div>
             </div>
         </div>
